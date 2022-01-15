@@ -1,0 +1,88 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+}
+
+h1 {
+    padding: 10px;
+}
+
+.button-container {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+dl.scores {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: 200px;
+    overflow: visible;
+}
+
+dl.scores dt {
+    flex: 0 0 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+dl.scores dd {
+    flex: 0 0 30%;
+    margin-left: auto;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.choice-btn {
+    height: 40px;
+    width: 100px;
+    border: 0;
+    background-color: #37AEE2;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.choice-btn:hover {
+    background-color: #1D95C9;
+}
+
+.choice-btn:disabled {
+    background-color: lightgray;
+}
+
+.final-result {
+    font-size: 48px;
+}

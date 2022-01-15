@@ -2,21 +2,31 @@
 <html>
 
 <head>
-    <title>Page Title</title>
+    <title>Rock paper scissors</title>
     <meta charset="UTF-8" />
 
     <script src="rock_paper_scissors.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <!-- The DOM -->
 
 <body>
     <h1>
-        THE TITLE OF YOUR WEBPAGE
+        Rock paper scissors
     </h1>
-    <div id="container">
-        <div class="content">
-            This is the glorious text-content!
-        </div>
+    <div class="button-container">
+        <button class="choice-btn" data-choice="rock">🪨 Rock</button>
+        <button class="choice-btn" data-choice="scissors">✂ Scissors</button>
+        <button class="choice-btn" data-choice="paper">🗎 Paper</button>
+    </div>
+    <dl class="scores">
+        <dt>Player score</dt>
+        <dd class="player-score">0</dd>
+        
+        <dt>Computer score</dt>
+        <dd class="computer-score">0</dd>
+    </dl>
+    <div class="results">
     </div>
 </body>
 

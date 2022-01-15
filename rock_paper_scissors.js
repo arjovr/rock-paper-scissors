@@ -7,7 +7,7 @@ function computerPlay() {
     return int2play(r);
 }
 
-function plays(player, computer) {
+function playRound(player, computer) {
     player = player.toLowerCase();
     computer = computer.toLowerCase();
 
@@ -16,12 +16,12 @@ function plays(player, computer) {
 
     let x = (computerInt - playerInt);
     if (Math.abs(x) == 1) {
-        return decideWin(x);
+        return x;
     }
-    return decideWin(x * -1);
+    return -x;
 }
 
-function decideWin(x) {
+function formatWinner(x) {
     if (x > 0) {
         return 'Computer wins';
     }
@@ -54,3 +54,34 @@ function int2play(r) {
     }
     throw 'Fuera de rango';
 }
+
+function choiceHandler(e) {
+    let choice = e.target.dataset.choice;
+    let winner = playRound(choice, computerPlay());
+    let resultsElement = document.querySelector('.results');
+    resultsElement.textContent = formatWinner(winner);
+    let scoreElement;
+    if (winner < 0) {
+        scoreElement = document.querySelector('.player-score');
+    } else if (winner > 0) {
+        scoreElement = document.querySelector('.computer-score');
+    } else {
+        return; // draw
+    }
+    let score = parseInt(scoreElement.textContent);
+    scoreElement.textContent = ++score;
+    if (score == 5) {
+        resultsElement.classList.add('final-result');
+        let choiceButtons = document.querySelectorAll('.choice-btn');
+        choiceButtons.forEach((button) =>  {
+            button.removeEventListener('click', choiceButtons);
+            button.disabled = true;
+        });
+    }
+}
+
+let choiceButtons = document.querySelectorAll('.choice-btn');
+
+choiceButtons.forEach((button) => {
+    button.addEventListener('click', choiceHandler);
+});
